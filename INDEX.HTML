@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOMO | Cosmética Natural y Jabones Artesanales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        grafito: '#2A2928',
+                        negro: '#000000',
+                        dorado: '#B99064',
+                        lavanda: '#A597B8',
+                        crema: '#F7F3EE',
+                        salvia: '#9EAB8A',
+                        oliva: '#6B705C',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'], // Fallback elegant for Liberation Serif
+                        sans: ['"Lato"', 'sans-serif'], // Fallback clean for Liberation Sans
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for smooth appearance */
+        body { background-color: #F7F3EE; color: #2A2928; }
+        .fade-in { animation: fadeIn 1s ease-in forwards; opacity: 0; }
+        .slide-up { animation: slideUp 0.8s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        
+        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+
+        .linea-cosmetica:hover { border-color: #B99064; box-shadow: 0 10px 25px -5px rgba(185, 144, 100, 0.2); }
+        .linea-jabones:hover { border-color: #A597B8; box-shadow: 0 10px 25px -5px rgba(165, 151, 184, 0.2); }
+        .eco-badge { background: linear-gradient(135deg, rgba(158,171,138,0.15) 0%, rgba(107,112,92,0.05) 100%); }
+    </style>
+</head>
+<body class="font-sans antialiased text-grafito bg-crema selection:bg-dorado selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-crema/90 backdrop-blur-md border-b border-grafito/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <span class="font-sans font-bold text-4xl tracking-tighter text-grafito">MOMO</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#filosofia" class="text-sm font-bold uppercase tracking-wider hover:text-dorado transition-colors">Filosofía</a>
+                    <a href="#lineas" class="text-sm font-bold uppercase tracking-wider hover:text-dorado transition-colors">Líneas</a>
+                    <a href="#terapeutico" class="text-sm font-bold uppercase tracking-wider hover:text-lavanda transition-colors">Jabón Terapéutico</a>
+                    <a href="#testimonios" class="text-sm font-bold uppercase tracking-wider hover:text-grafito/70 transition-colors">Casos de Éxito</a>
+                    <a href="#modo-uso" class="text-sm font-bold uppercase tracking-wider hover:text-grafito/70 transition-colors">Modo de Uso</a>
+                </div>
+                <div class="hidden md:flex">
+                    <a href="#contacto" class="bg-grafito text-white px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider hover:bg-black transition-colors">Contacto</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-grafito hover:text-dorado focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-crema border-b border-grafito/10">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="#filosofia" class="block px-3 py-2 text-base font-bold uppercase hover:text-dorado">Filosofía</a>
+                <a href="#lineas" class="block px-3 py-2 text-base font-bold uppercase hover:text-dorado">Líneas</a>
+                <a href="#terapeutico" class="block px-3 py-2 text-base font-bold uppercase hover:text-lavanda">Jabón Terapéutico</a>
+                <a href="#testimonios" class="block px-3 py-2 text-base font-bold uppercase hover:text-grafito">Testimonios</a>
+                <a href="#modo-uso" class="block px-3 py-2 text-base font-bold uppercase hover:text-grafito">Modo de uso</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="max-w-2xl slide-up">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-salvia/20 text-oliva text-sm font-bold tracking-wide mb-6 border border-salvia/40">
+                        <i data-lucide="leaf" class="w-4 h-4 fill-current"></i> 100% Origen Natural
+                    </div>
+                    <h1 class="font-serif text-5xl lg:text-7xl leading-tight mb-6 text-grafito">
+                        Ciencia y Naturaleza en cada <span class="italic text-oliva">pastilla.</span>
+                    </h1>
+                    <p class="text-lg lg:text-xl mb-8 text-grafito/80 font-light leading-relaxed">
+                        Formulamos soluciones honestas, <span class="font-bold text-oliva">ecológicas y biodegradables</span> que respetan tu piel y el planeta. Una experiencia de calidad superior, tanto en el tratamiento dermocosmético como en la higiene artesanal.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#terapeutico" class="bg-grafito text-white text-center px-8 py-4 rounded-full font-bold uppercase tracking-wider hover:bg-black transition-colors">Descubrir Tratamientos</a>
+                        <a href="#lineas" class="border border-grafito text-grafito text-center px-8 py-4 rounded-full font-bold uppercase tracking-wider hover:bg-grafito hover:text-white transition-colors">Ver Líneas</a>
+                    </div>
+                </div>
+                <div class="relative h-[500px] w-full rounded-2xl overflow-hidden slide-up delay-200 shadow-2xl">
+                    <img src="unnamed.jpg" onerror="this.src='https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'" alt="Jabón artesanal MOMO con lavanda" class="object-cover w-full h-full transform hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-oliva/20 to-transparent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eco Banner -->
+    <div class="bg-oliva text-crema py-5 overflow-hidden border-y border-salvia/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center gap-6 md:gap-16 text-sm font-bold uppercase tracking-widest">
+            <div class="flex items-center gap-2"><i data-lucide="leaf" class="w-5 h-5 text-salvia"></i> 100% Natural</div>
+            <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5 text-salvia"></i> Eco Certificado</div>
+            <div class="flex items-center gap-2"><i data-lucide="rabbit" class="w-5 h-5 text-salvia"></i> Cruelty Free</div>
+            <div class="flex items-center gap-2"><i data-lucide="recycle" class="w-5 h-5 text-salvia"></i> Biodegradable</div>
+        </div>
+    </div>
+
+    <!-- Brand ADN Section -->
+    <section id="filosofia" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-serif text-4xl mb-4 text-grafito">El ADN de MOMO</h2>
+                <p class="text-grafito/70">Convertirnos en el elemento esencial de confianza en tu día a día, con transparencia absoluta en nuestras formulaciones.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="p-8 rounded-2xl bg-crema border border-grafito/5 text-center">
+                    <div class="w-16 h-16 mx-auto bg-dorado/10 rounded-full flex items-center justify-center mb-6 text-dorado">
+                        <i data-lucide="eye" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-3">Honestidad y Transparencia</h3>
+                    <p class="text-sm text-grafito/80">Fórmulas y etiquetas claras. Cuidado natural con <strong>certificación ecológica</strong>. No hacemos falsas promesas, mostramos resultados.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-crema border border-grafito/5 text-center">
+                    <div class="w-16 h-16 mx-auto bg-salvia/20 rounded-full flex items-center justify-center mb-6 text-oliva">
+                        <i data-lucide="leaf" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-3">Sinergia Orgánica</h3>
+                    <p class="text-sm text-grafito/80">Abrazamos lo mejor de dos mundos: el rigor científico de la dermocosmética y el alma botánica sostenible de la formulación artesanal.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-crema border border-grafito/5 text-center">
+                    <div class="w-16 h-16 mx-auto bg-grafito/10 rounded-full flex items-center justify-center mb-6 text-grafito">
+                        <i data-lucide="leaf" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-3">Sinergia Pura</h3>
+                    <p class="text-sm text-grafito/80">Abrazamos lo mejor de dos mundos: el rigor científico de la dermocosmética y el alma botánica de la formulación artesanal.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-crema border border-grafito/5 text-center">
+                    <div class="w-16 h-16 mx-auto bg-lavanda/10 rounded-full flex items-center justify-center mb-6 text-lavanda">
+                        <i data-lucide="droplet" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold mb-3">Minimalismo Funcional</h3>
+                    <p class="text-sm text-grafito/80">Menos es más. Eliminamos el ruido innecesario, dejando solo activos eficaces, como el Aceite de Argán y AOVE.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Líneas de Negocio -->
+    <section id="lineas" class="py-24 bg-crema">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-serif text-4xl md:text-5xl text-center mb-16">Nuestras Líneas de Negocio</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <!-- MOMO Cosmética -->
+                <div class="linea-cosmetica bg-white p-10 rounded-3xl border-2 border-transparent transition-all duration-300 group cursor-pointer">
+                    <div class="mb-8">
+                        <div class="flex items-end gap-2 mb-2">
+                            <span class="font-sans font-bold text-5xl tracking-tighter text-grafito">MOMO</span>
+                            <i data-lucide="flower-2" class="w-8 h-8 text-dorado mb-1"></i>
+                        </div>
+                        <span class="font-serif italic text-3xl text-dorado">cosmética</span>
+                    </div>
+                    <p class="text-grafito/80 mb-8 min-h-[80px]">Asociada a la belleza, cuidado profundo y tratamiento dermocosmético con ingredientes de máxima pureza.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-crema/50">
+                            <div class="p-2 bg-dorado/20 rounded-lg text-dorado mt-1"><i data-lucide="sparkles" class="w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">Línea Anti-Aging</h4>
+                                <p class="text-sm text-grafito/70">Potenciada con Cúrcuma y Aceite de Oliva Virgen Extra para luminosidad y tratamiento de arrugas.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-crema/50">
+                            <div class="p-2 bg-dorado/20 rounded-lg text-dorado mt-1"><i data-lucide="sun" class="w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">Línea Joven / Acné</h4>
+                                <p class="text-sm text-grafito/70">Formulada con Aloe Vera y Rosa Mosqueta. Ideal para pieles grasas y tratamiento de imperfecciones.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MOMO Jabones -->
+                <div class="linea-jabones bg-white p-10 rounded-3xl border-2 border-transparent transition-all duration-300 group cursor-pointer">
+                    <div class="mb-8">
+                        <div class="flex items-end gap-2 mb-2">
+                            <span class="font-sans font-bold text-5xl tracking-tighter text-grafito">MOMO</span>
+                            <i data-lucide="leafy-green" class="w-8 h-8 text-lavanda mb-1"></i>
+                        </div>
+                        <span class="font-sans text-3xl text-lavanda font-light tracking-wide">Jabones</span>
+                    </div>
+                    <p class="text-grafito/80 mb-8 min-h-[80px]">Asociada a la higiene esencial, formulación natural, terapéutica y al universo artesanal.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-crema/50">
+                            <div class="p-2 bg-lavanda/20 rounded-lg text-lavanda mt-1"><i data-lucide="heart-pulse" class="w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">Jabón Terapéutico</h4>
+                                <p class="text-sm text-grafito/70">Elaborado con productos naturales ecológicos certificados para condiciones de la piel difíciles de tratar.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-crema/50">
+                            <div class="p-2 bg-lavanda/20 rounded-lg text-lavanda mt-1"><i data-lucide="wrench" class="w-5 h-5"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">Línea Industrial / Taller</h4>
+                                <p class="text-sm text-grafito/70">Limpieza técnica profunda mediante abrasión mecánica natural con cáscara de nuez molida y serrín.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Producto Estrella / Terapéutico -->
+    <section id="terapeutico" class="py-24 bg-grafito text-crema overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative">
+                    <div class="absolute inset-0 bg-lavanda/10 rounded-full blur-3xl transform scale-110"></div>
+                    <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jabón Natural Terapéutico MOMO" class="relative z-10 rounded-2xl shadow-2xl border border-white/10 object-cover h-[600px] w-full">
+                    
+                    <!-- Floating badge -->
+                    <div class="absolute -bottom-6 -right-6 bg-white text-grafito p-6 rounded-2xl shadow-xl z-20 max-w-xs border-2 border-salvia/40 eco-badge">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i data-lucide="leaf" class="text-oliva w-6 h-6 fill-current"></i>
+                            <span class="font-bold text-sm uppercase text-oliva">Fórmula Ecológica</span>
+                        </div>
+                        <p class="text-xs text-grafito/70">Sello <strong class="text-oliva">ECOCERT</strong>: ingredientes activos naturales 100% biodegradables y respetuosos con el medio ambiente.</p>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <span class="text-lavanda font-bold tracking-widest uppercase text-sm mb-4 block">El Tratamiento Definitivo</span>
+                    <h2 class="font-serif text-4xl lg:text-5xl mb-6 text-white">Jabón Terapéutico MOMO</h2>
+                    <p class="text-crema/80 text-lg mb-8 font-light">
+                        Una formulación maestra concebida para la sanación profunda de la piel. Indicado especialmente para cicatrizar heridas difíciles, aliviar afecciones dermatológicas severas y revitalizar el rostro.
+                    </p>
+                    
+                    <div class="mb-10">
+                        <h3 class="font-serif text-2xl text-dorado mb-4">Composición Activa</h3>
+                        <ul class="grid grid-cols-2 gap-y-4 gap-x-6">
+                            <li class="flex items-center gap-2 text-sm"><i data-lucide="check-circle-2" class="text-lavanda w-4 h-4"></i> Aceite de Oliva Virgen Extra</li>
+                            <li class="flex items-center gap-2 text-sm"><i data-lucide="check-circle-2" class="text-lavanda w-4 h-4"></i> Aceite de Argán Puro</li>
+                            <li class="flex items-center gap-2 text-sm"><i data-lucide="check-circle-2" class="text-lavanda w-4 h-4"></i> Extracto de Aloe Vera</li>
+                            <li class="flex items-center gap-2 text-sm"><i data-lucide="check-circle-2" class="text-lavanda w-4 h-4"></i> Rosa Mosqueta</li>
+                            <li class="flex items-center gap-2 text-sm col-span-2"><i data-lucide="check-circle-2" class="text-lavanda w-4 h-4"></i> RESVERATROL (Potente Anti-arrugas)</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-serif text-2xl text-white mb-4">Eficacia Clínica Comprobada en:</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-white/10 px-4 py-2 rounded-full text-sm border border-white/5">Psoriasis y Rojeces</span>
+                            <span class="bg-white/10 px-4 py-2 rounded-full text-sm border border-white/5">Acné severo y hormonal</span>
+                            <span class="bg-white/10 px-4 py-2 rounded-full text-sm border border-white/5">Cicatrización diabética</span>
+                            <span class="bg-white/10 px-4 py-2 rounded-full text-sm border border-white/5">Eliminación de puntos negros</span>
+                            <span class="bg-white/10 px-4 py-2 rounded-full text-sm border border-white/5">Picores nocturnos intensos</span>
+                            <span class="bg-white/10 px-4 py-2 rounded-full text-sm border border-white/5">Hongos en uñas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios Reales -->
+    <section id="testimonios" class="py-24 bg-white relative">
+        <!-- Decorative bg -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-dorado/5 rounded-bl-full"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-dorado font-bold tracking-widest uppercase text-sm mb-4 block">Resultados que cambian vidas</span>
+                <h2 class="font-serif text-4xl mb-4 text-grafito">Casos de Éxito</h2>
+                <p class="text-grafito/70">Historias reales documentadas a lo largo de 5 años. La eficacia de nuestra formulación contada por quienes la han vivido.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-crema p-8 rounded-2xl shadow-sm border border-grafito/5 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 text-dorado/20 w-12 h-12"></i>
+                    <h4 class="font-serif text-xl font-bold mb-2">Herida Diabética Severa</h4>
+                    <p class="text-sm text-grafito/70 mb-6 italic">"A Manuel le iban a amputar los dedos del pie porque la necrosis por azúcar no cicatrizaba. Tras aplicar el jabón en las curas durante 15 días, los médicos no daban crédito a la cicatrización. Se libró de la amputación."</p>
+                    <div class="border-t border-grafito/10 pt-4">
+                        <span class="block font-bold text-sm uppercase">Manuel Cortés</span>
+                        <span class="block text-xs text-grafito/60">Gines, Sevilla</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-crema p-8 rounded-2xl shadow-sm border border-grafito/5 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 text-dorado/20 w-12 h-12"></i>
+                    <h4 class="font-serif text-xl font-bold mb-2">Psoriasis de 5 años</h4>
+                    <p class="text-sm text-grafito/70 mb-6 italic">"Llevaba 5 años yendo a dermatólogos. Sus manos estaban como un saco de yute y el cuerpo completamente lleno. En 20 días con el jabón de MOMO, el médico diagnosticó que clínicamente ya no tenía psoriasis."</p>
+                    <div class="border-t border-grafito/10 pt-4">
+                        <span class="block font-bold text-sm uppercase">Caso documentado</span>
+                        <span class="block text-xs text-grafito/60">Psoriasis Crónica</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-crema p-8 rounded-2xl shadow-sm border border-grafito/5 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 text-dorado/20 w-12 h-12"></i>
+                    <h4 class="font-serif text-xl font-bold mb-2">Cirugía y Cicatrización</h4>
+                    <p class="text-sm text-grafito/70 mb-6 italic">"Tras una operación de nariz con carbono que requería 20 días cubierta. Empezó a usar el jabón; en 4 o 5 días desaparecieron las costras y en una semana no había rastro visible de la operación."</p>
+                    <div class="border-t border-grafito/10 pt-4">
+                        <span class="block font-bold text-sm uppercase">Paciente post-cirugía</span>
+                        <span class="block text-xs text-grafito/60">Regeneración celular</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="bg-crema p-8 rounded-2xl shadow-sm border border-grafito/5 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 text-dorado/20 w-12 h-12"></i>
+                    <h4 class="font-serif text-xl font-bold mb-2">Acné Adolescente y Hormonal</h4>
+                    <p class="text-sm text-grafito/70 mb-6 italic">"Tanto chicos adolescentes con problemas severos de acné, como chicas y madres con brotes hormonales por la menstruación, obtuvieron resultados magníficos. Limpio y sin dejar cicatrices ni señales."</p>
+                    <div class="border-t border-grafito/10 pt-4">
+                        <span class="block font-bold text-sm uppercase">Múltiples Jóvenes</span>
+                        <span class="block text-xs text-grafito/60">Tratamiento de imperfecciones</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="bg-crema p-8 rounded-2xl shadow-sm border border-grafito/5 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 text-dorado/20 w-12 h-12"></i>
+                    <h4 class="font-serif text-xl font-bold mb-2">Psoriasis Juvenil</h4>
+                    <p class="text-sm text-grafito/70 mb-6 italic">"A un muchacho de 16 años de Calañas (Huelva) le di dos pastillas. En tan solo 20 días de aplicación constante, se le había quitado completamente la psoriasis que padecía."</p>
+                    <div class="border-t border-grafito/10 pt-4">
+                        <span class="block font-bold text-sm uppercase">Adolescente (16 años)</span>
+                        <span class="block text-xs text-grafito/60">Calañas, Huelva</span>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="bg-crema p-8 rounded-2xl shadow-sm border border-grafito/5 relative">
+                    <i data-lucide="quote" class="absolute top-6 right-6 text-dorado/20 w-12 h-12"></i>
+                    <h4 class="font-serif text-xl font-bold mb-2">Picores y Dermatitis</h4>
+                    <p class="text-sm text-grafito/70 mb-6 italic">"Tenía rojeces por todo el cuerpo, y otras personas con picores muy persistentes en pies y manos por la noche. Tras untarse el jabón, en diez minutos desaparecía el picor por completo."</p>
+                    <div class="border-t border-grafito/10 pt-4">
+                        <span class="block font-bold text-sm uppercase">Uso nocturno y diario</span>
+                        <span class="block text-xs text-grafito/60">Calma inmediata</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instrucciones de Uso -->
+    <section id="modo-uso" class="py-24 bg-crema border-t border-grafito/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-grafito text-white rounded-3xl overflow-hidden shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-12 lg:p-16 flex flex-col justify-center">
+                        <h2 class="font-serif text-3xl lg:text-4xl mb-2 text-white">Método de Aplicación</h2>
+                        <p class="text-dorado font-serif italic text-xl mb-10">Para afecciones terapéuticas</p>
+                        
+                        <div class="space-y-8">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-lavanda">1</div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Activación en agua</h4>
+                                    <p class="text-white/70 text-sm leading-relaxed">Poner en remojo la pastilla en un recipiente pequeño, cubierto de agua a lo alto.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-lavanda">2</div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Creación de la emulsión</h4>
+                                    <p class="text-white/70 text-sm leading-relaxed">Esperar hasta que el jabón se reblandezca y el agua se convierta en una emulsión tipo crema.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center font-bold text-lavanda">3</div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Aplicación directa</h4>
+                                    <p class="text-white/70 text-sm leading-relaxed">Aplicar la crema del jabón directamente sobre la zona afectada a modo de pomada. Repetir al menos <strong class="text-dorado">3 veces al día</strong>.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-lavanda/20 border border-lavanda/50 flex items-center justify-center font-bold text-lavanda">
+                                    <i data-lucide="info" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1 text-lavanda">No Enjuagar</h4>
+                                    <p class="text-white/70 text-sm leading-relaxed">Dejar actuar sobre la piel. La fórmula está diseñada para absorberse; no deja color ni rastro de brillo en la piel.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[url('https://images.unsplash.com/photo-1546840428-bc6b7e056942?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] bg-cover bg-center min-h-[400px]">
+                        <!-- Image placeholder matching organic texture -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-white border-t border-grafito/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <span class="font-sans font-bold text-4xl tracking-tighter text-grafito mb-4 block">MOMO</span>
+                    <p class="text-grafito/70 mb-6 max-w-sm">Fabricación propia, control absoluto de calidad y respeto por la naturaleza. Ciencia y tradición en una sola firma ecológica.</p>
+                    <div class="flex space-x-4">
+                        <!-- Logos/Badges mentioned in the brief -->
+                        <div class="w-12 h-12 rounded-full border-2 border-salvia bg-salvia/10 flex items-center justify-center text-oliva" title="Eco Certificado">
+                            <i data-lucide="leaf" class="w-6 h-6"></i>
+                        </div>
+                        <div class="w-12 h-12 rounded-full border-2 border-salvia bg-salvia/10 flex items-center justify-center text-oliva" title="Cruelty Free">
+                            <i data-lucide="rabbit" class="w-6 h-6"></i>
+                        </div>
+                        <div class="w-12 h-12 rounded-full border-2 border-salvia bg-salvia/10 flex items-center justify-center text-oliva" title="Biodegradable">
+                            <i data-lucide="recycle" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-wider mb-4 text-sm">Líneas Legales</h4>
+                    <ul class="space-y-3 text-sm text-grafito/70">
+                        <li><span class="font-serif italic text-dorado text-base mr-1">cosmética</span> MOMO Cosmética Natural</li>
+                        <li><span class="text-lavanda text-base mr-1">Jabones</span> MOMO Jabones</li>
+                        <li>Línea Industrial</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold uppercase tracking-wider mb-4 text-sm">Contacto Oficial</h4>
+                    <ul class="space-y-3 text-sm text-grafito/70">
+                        <li class="flex items-center gap-2"><i data-lucide="globe" class="w-4 h-4 text-dorado"></i> www.jabonesmomo.com</li>
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-dorado"></i> info@jabonesmomo.com</li>
+                        <li class="mt-4 pt-4 border-t border-grafito/10">
+                            Pedidos y Consultas Médicas<br>
+                            Atención al distribuidor
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-grafito/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-grafito/50">
+                <p>&copy; 2026 MOMO. Todos los derechos reservados.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-grafito transition-colors">Aviso Legal</a>
+                    <a href="#" class="hover:text-grafito transition-colors">Política de Privacidad</a>
+                    <a href="#" class="hover:text-grafito transition-colors">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
